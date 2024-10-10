@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('guru', function (Blueprint $table) {
             $table->id();
-            $table->string('nip', 6)->unique();
+            $table->string('nip', 255)->unique();
             $table->string('nama_lengkap' , 64)->nullable();
             $table->string('jabatan' , 32)->nullable();
             $table->string('email' , 128)->nullable();
-            $table->string('password' , 16)->required();
+            $table->string('password' , 255)->required();
             $table->timestamps();
         });
     }

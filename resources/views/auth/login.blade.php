@@ -38,10 +38,11 @@
                 <h4>SILAHKAN LOGIN</h4>
             </div>
             <div class="section mt-1 mb-5">
-                <form action="app-pages.html">
+                <form action="/proseslogin" method="POST">
+                    @csrf
                     <div class="form-group boxed">
                         <div class="input-wrapper">
-                            <input type="nik" name="nik" class="form-control" id="nik" placeholder="NIK">
+                            <input type="text" name="nip" class="form-control" id="nip" placeholder="NIP">
                             <i class="clear-input">
                                 <ion-icon name="close-circle"></ion-icon>
                             </i>

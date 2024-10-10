@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('presensi', function (Blueprint $table) {
             $table->id();
-            $table->string('nik', 6)->required();
+            $table->string('nik', 6)->unique();
             $table->date('tgl_presensi')->required();
             $table->time('jam_in')->nullable();
             $table->time('jam_out')->nullable();
