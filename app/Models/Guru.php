@@ -37,9 +37,9 @@ class Guru extends Authenticatable
         ];
     }
 
-    public function getAuthIdentifierName()
-    {
-        return 'nip';
-    }
+    //public function getAuthIdentifierName()
+    //{
+       // return 'nip';
+    //}
     
 }
