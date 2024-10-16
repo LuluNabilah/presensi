@@ -1,5 +1,6 @@
 @extends('layouts.presensi')
 @section('header')
+<!------- app header ------->
     <div class="appHeader bg-primary text-light">
         <div class="left">
             <a href="javascript:;" class="headerButton goBack">
@@ -9,25 +10,17 @@
         <div class="pageTitle">E-Presensi</div>
         <div class="right"></div>
     </div> 
-    <style>
-        .webcame-capture,
-        .webcame-capture video{
-            display: inline-block;
-            widht : 100% !important;
-            margin : auto;
-            height : auto !important;
-            border-radius: 20px;
+<!------- app header ------->
 
-        }
-            
-        
-    </style> 
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
 @endsection
 @section('content')
 <div class="row" style="margin-top: 70px;">
     <div class="col">
         <input type="hidden" id="lokasi">
-        <div class="webcame-capture"></div>
+        <div class="webcam-capture"></div>
     </div>
 </div>
 <div class="row">
@@ -36,34 +29,12 @@
             <ion-icon name="camera-outline"></ion-icon>
             Absen Masuk
         </button>
-       
     </div>
+</div>
+<div class="row mt-2">
+   <div class="col">
+        <div id="map"></div>
+   </div>
 </div>
 @endsection
 
-@push('myscript')
-    <script>
-        Webcame.set({
-            height: 480
-                , width: 640
-                , image_format: 'jpeg'
-                , jpeg_quality: 80
-        });
-
-        Webcame.attach('.webcame-capture');
-
-        var lokasi = document.getElementById("lokasi");
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
-        }
-
-        function succsessCallback(position) {
-            lokasi.value = position.coords.latitude + "," + position.coords.longitude;
-        }
-
-        function errorCallback() {
-            
-        }
-
-    </script>
-@endpush
